@@ -32,6 +32,7 @@ install:
 
 script:
   - conda build ./recipe
+  - "([ -f ./recipe/ci_test.py ] && ./recipe/ci_test.py) || true"
 
 after_success:
 
