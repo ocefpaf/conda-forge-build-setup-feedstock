@@ -46,7 +46,4 @@ conda info
 # Embarking on 1 case(s).
     conda build /recipe_root --quiet || exit 1
     /feedstock_root/ci_support/upload_or_check_non_existence.py /recipe_root conda-forge --channel=main || exit 1
-
-([ -f /recipe_root/ci_test.py ] && /recipe_root/ci_test.py) || true
-
 EOF

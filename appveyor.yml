@@ -62,8 +62,6 @@ build: off
 
 test_script:
     - "%CMD_IN_ENV% conda build recipe --quiet"
-    - cmd: 'if exist recipe\\ci_test.py python recipe\\ci_test.py'
-
 deploy_script:
 
     - 'python ci_support\upload_or_check_non_existence.py .\recipe conda-forge --channel=main'
