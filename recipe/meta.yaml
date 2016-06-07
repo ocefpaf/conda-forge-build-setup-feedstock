@@ -20,7 +20,10 @@ requirements:
     - jinja2
     - anaconda-client
 
-test: {}
+test:
+  commands:
+    - if not exist "%LIBRARY_BIN%\\run_conda_forge_build_setup.bat" exit 1                                               # [win]
+    - test -f "${PREFIX}/bin/run_conda_forge_build_setup"                                                                # [unix]
 
 about:
   home: https://github.com/conda-forge/conda-forge-build-setup-feedstock
