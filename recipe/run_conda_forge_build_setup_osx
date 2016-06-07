@@ -2,3 +2,10 @@
 
 conda config --set show_channel_urls true
 conda config --set add_pip_as_python_dependency false
+
+conda update -n root --yes --quiet conda conda-build
+conda install -n root --yes --quiet jinja2 anaconda-client
+
+# Workaround an encoding bug in conda-build 1.20.1 when fixing shebangs.
+# See this issue ( https://github.com/conda/conda-build/issues/889 ).
+conda install -n root --yes --quiet conda-build=1.20.0
