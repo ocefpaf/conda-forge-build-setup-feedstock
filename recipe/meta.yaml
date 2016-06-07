@@ -5,10 +5,11 @@ package:
 build:
   number: 0
   script:
-    - IF NOT EXIST %PREFIX%\etc\conda\activate.d MKDIR %PREFIX%\etc\conda\activate.d  # [win]
-    - COPY %RECIPE_DIR%\activate.bat %PREFIX%\etc\conda\activate.d\conda-forge-build-setup_activate.bat  # [win]
-    - mkdir -p "${PREFIX}/etc/conda/activate.d"  # [unix]
-    - cp "${RECIPE_DIR}/activate.sh" "${PREFIX}/etc/conda/activate.d/conda-forge-build-setup_activate.sh"  # [unix]
+    - if not exist "%LIBRARY_BIN%" mkdir "%LIBRARY_BIN%"                                                                 # [win]
+    - mkdir -p "${PREFIX}/bin"                                                                                           # [unix]
+    - COPY "%RECIPE_DIR%\\run_conda_forge_build_setup_win" "%LIBRARY_BIN%\\run_conda_forge_build_setup.bat"              # [win]
+    - cp "${RECIPE_DIR}/run_conda_forge_build_setup_osx" "${PREFIX}/bin/run_conda_forge_build_setup"                     # [osx]
+    - cp "${RECIPE_DIR}/run_conda_forge_build_setup_linux" "${PREFIX}/bin/run_conda_forge_build_setup"                   # [linux]
 
 requirements:
   run:
