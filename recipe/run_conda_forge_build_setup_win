@@ -15,3 +15,4 @@ conda install -n root --yes --quiet conda-build=1.20.1
 # ( https://github.com/conda/conda-build/issues/895 ).
 if "%TARGET_ARCH%" == "x64" if "%CONDA_PY%" == "34" conda install -n root --yes --quiet conda-build=1.20.0
 conda info
+conda config --get
