@@ -13,3 +13,4 @@ conda update -n root --yes --quiet conda conda-build
 conda install -n root --yes --quiet jinja2 anaconda-client
 
 conda info
+conda config --get
