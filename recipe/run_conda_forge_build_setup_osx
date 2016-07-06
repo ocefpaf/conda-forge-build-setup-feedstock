@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# 1 core available on Travis CI OS X workers: https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments
-# MAKEFLAGS is passed through conda build: https://github.com/conda/conda-build/pull/917
-export MAKEFLAGS="-j1 ${MAKEFLAGS}"
-
 export PYTHONUNBUFFERED=1
 
 conda config --set show_channel_urls true
